@@ -101,9 +101,16 @@ changes by simply running `terraform apply -var-file=<workspace_name>.tfvars`.
 
 | Name | Type |
 |------|------|
+| [aws_iam_policy.provisionlambdabucket_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_policy.provisionssmsessionmanager_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
+| [aws_iam_role_policy_attachment.provisionlambdabucket_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 | [aws_iam_role_policy_attachment.provisionssmsessionmanager_policy_attachment](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
+| [aws_s3_bucket.lambda_artifacts](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket) | resource |
+| [aws_s3_bucket_ownership_controls.lambda_artifacts](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_ownership_controls) | resource |
+| [aws_s3_bucket_public_access_block.lambda_artifacts](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_public_access_block) | resource |
+| [aws_s3_bucket_server_side_encryption_configuration.lambda_artifacts](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_server_side_encryption_configuration) | resource |
 | [aws_caller_identity.cyhy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity) | data source |
+| [aws_iam_policy_document.provisionlambdabucket_policy_doc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.provisionssmsessionmanager_policy_doc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_iam_policy_document.sns_topic_access_policy_doc](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document) | data source |
 | [aws_organizations_organization.cool](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/organizations_organization) | data source |
@@ -113,8 +120,11 @@ changes by simply running `terraform apply -var-file=<workspace_name>.tfvars`.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | aws\_region | The AWS region where the non-global resources for the Cyber Hygiene account are to be provisioned (e.g. "us-east-1"). | `string` | `"us-east-1"` | no |
+| lambda\_artifacts\_s3\_bucket | The name of the bucket where any Lambda deployment artifacts for a CyHy environment will be stored.  Note that in production Terraform workspaces, the string '-production' will be appended to the bucket name.  In non-production workspaces, '-<workspace\_name>' will be appended to the bucket name. | `string` | `"cool-cyhy-lambda-deployment-artifacts"` | no |
 | provisionaccount\_role\_description | The description to associate with the IAM role that allows sufficient permissions to provision all AWS resources in the Cyber Hygiene account. | `string` | `"Allows sufficient permissions to provision all AWS resources in the Cyber Hygiene account."` | no |
 | provisionaccount\_role\_name | The name to assign the IAM role that allows sufficient permissions to provision all AWS resources in the Cyber Hygiene account. | `string` | `"ProvisionAccount"` | no |
+| provisionlambdabucket\_policy\_description | The description to associate with the IAM policy that allows sufficient permissions to provision the Lambda deployment artifacts S3 bucket. | `string` | `"Allows sufficient permissions to provision the Lambda deployment artifacts S3 bucket."` | no |
+| provisionlambdabucket\_policy\_name | The name to assign the IAM policy that allows sufficient permissions to provision the Lambda deployment artifacts S3 bucket. | `string` | `"ProvisionLambdaArtifactsBucket"` | no |
 | provisionssmsessionmanager\_policy\_description | The description to associate with the IAM policy that allows sufficient permissions to provision the SSM Document resource and set up SSM session logging in the Cyber Hygiene account. | `string` | `"Allows sufficient permissions to provision the SSM Document resource and set up SSM session logging in the Cyber Hygiene account."` | no |
 | provisionssmsessionmanager\_policy\_name | The name to assign the IAM policy that allows sufficient permissions to provision the SSM Document resource and set up SSM session logging in the Cyber Hygiene account. | `string` | `"ProvisionSSMSessionManager"` | no |
 | tags | Tags to apply to all AWS resources provisioned. | `map(string)` | `{}` | no |
