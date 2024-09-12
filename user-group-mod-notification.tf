@@ -12,16 +12,16 @@ data "aws_iam_policy_document" "sns_topic_access_policy_doc" {
       "sns:Publish",
     ]
 
-    principals {
-      identifiers = ["events.amazonaws.com"]
-      type        = "Service"
-    }
-
     resources = [
       # We can't use module.user_group_mod_sns.sns_topic.arn here because it
       # creates a cycle; fortunately, we can create the SNS topic ARN manually.
       "arn:aws:sns:${var.aws_region}:${local.cyhy_account_id}:user-or-group-modified",
     ]
+
+    principals {
+      identifiers = ["events.amazonaws.com"]
+      type        = "Service"
+    }
   }
 }
 
