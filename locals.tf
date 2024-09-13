@@ -24,7 +24,7 @@ locals {
   # In production Terraform workspaces, the string '-production' is appended to
   # the bucket name.  In non-production workspaces, '-<workspace_name>' is
   # appended to the bucket name.
-  lambda_bucket_name = format("%s-%s", var.lambda_artifacts_s3_bucket, local.production_workspace ? "production" : terraform.workspace)
+  lambda_bucket_name = format("%s-%s", var.cyhy_lambda_artifacts_s3_bucket, local.production_workspace ? "production" : terraform.workspace)
 
   # Find the Users account
   users_account_id = [

@@ -26,9 +26,9 @@ variable "aws_region" {
   type        = string
 }
 
-variable "lambda_artifacts_s3_bucket" {
+variable "cyhy_lambda_artifacts_s3_bucket" {
   default     = "cool-cyhy-lambda-deployment-artifacts"
-  description = "The name of the bucket where any Lambda deployment artifacts for a CyHy environment will be stored.  Note that in production Terraform workspaces, the string '-production' will be appended to the bucket name.  In non-production workspaces, '-<workspace_name>' will be appended to the bucket name."
+  description = "The name of the bucket in the Cyber Hygiene account where any Lambda deployment artifacts for a CyHy environment will be stored.  Note that in production Terraform workspaces, the string '-production' will be appended to the bucket name.  In non-production workspaces, '-<workspace_name>' will be appended to the bucket name."
   type        = string
 }
 
@@ -45,14 +45,14 @@ variable "provisionaccount_role_name" {
 }
 
 variable "provisionlambdabucket_policy_description" {
-  default     = "Allows sufficient permissions to provision the Lambda deployment artifacts S3 bucket."
-  description = "The description to associate with the IAM policy that allows sufficient permissions to provision the Lambda deployment artifacts S3 bucket."
+  default     = "Allows sufficient permissions to provision the Lambda deployment artifacts S3 bucket in the Cyber Hygiene account."
+  description = "The description to associate with the IAM policy that allows sufficient permissions to provision the Lambda deployment artifacts S3 bucket in the Cyber Hygiene account."
   type        = string
 }
 
 variable "provisionlambdabucket_policy_name" {
   default     = "ProvisionLambdaArtifactsBucket"
-  description = "The name to assign the IAM policy that allows sufficient permissions to provision the Lambda deployment artifacts S3 bucket."
+  description = "The name to assign the IAM policy that allows sufficient permissions to provision the Lambda deployment artifacts S3 bucket in the Cyber Hygiene account."
   type        = string
 }
 
