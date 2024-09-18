@@ -47,7 +47,7 @@ To do this bootstrapping, follow these steps:
 
    ```hcl
    tags = {
-     Team        = "VM Fusion - Development"
+     Team        = "VM - Development"
      Application = "COOL - Cyber Hygiene"
      Workspace   = "production"
    }
