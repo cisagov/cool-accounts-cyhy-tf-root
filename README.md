@@ -10,6 +10,18 @@ It creates an IAM role that allows sufficient permissions to provision all AWS
 resources in this account. This role has a trust relationship with the COOL
 users account.
 
+## Pre-requisites ##
+
+- [Terraform](https://www.terraform.io/) installed on your system.
+- An accessible AWS S3 bucket to store Terraform state (specified in
+  [backend.tf](backend.tf)).
+- An accessible AWS DynamoDB database to store the Terraform state lock
+  (specified in [backend.tf](backend.tf)).
+
+We recommend creating the S3 bucket and DynamoDB table above by applying the
+Terraform code in the "terraform" subdirectory of
+[`cisagov/cool-accounts`](https://github.com/cisagov/cool-accounts).
+
 ## Bootstrapping this account ##
 
 Note that the COOL Cyber Hygiene account must be bootstrapped. This is because
