@@ -26,9 +26,9 @@ variable "aws_region" {
   type        = string
 }
 
-variable "cyhy_lambda_artifacts_s3_bucket" {
+variable "cyhy_lambda_artifacts_s3_bucket_prefix" {
   default     = "cool-cyhy-lambda-deployment-artifacts"
-  description = "The name of the bucket in the Cyber Hygiene account where any Lambda deployment artifacts for a CyHy environment will be stored.  Note that in production Terraform workspaces, the string '-production' will be appended to the bucket name.  In non-production workspaces, '-<workspace_name>' will be appended to the bucket name."
+  description = "The prefix of the name of the bucket in the Cyber Hygiene account where any Lambda deployment artifacts for a CyHy environment will be stored.  A unique bucket name beginning with the specified prefix will be created."
   type        = string
 }
 

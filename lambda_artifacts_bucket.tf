@@ -1,7 +1,7 @@
 # This bucket is used to store the deployment packages for any Lambda functions
 # that will be used in a CyHy environment.
 resource "aws_s3_bucket" "lambda_artifacts" {
-  bucket = local.lambda_bucket_name
+  bucket_prefix = var.cyhy_lambda_artifacts_s3_bucket_prefix
 
   tags = {
     "Name" = "Lambda Deployment Artifacts"

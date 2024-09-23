@@ -20,7 +20,7 @@ data "aws_iam_policy_document" "provisionlambdabucket_policy_doc" {
     ]
 
     resources = [
-      "arn:aws:s3:::${local.lambda_bucket_name}",
+      "arn:aws:s3:::${var.cyhy_lambda_artifacts_s3_bucket_prefix}*",
     ]
   }
 }
