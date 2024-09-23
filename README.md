@@ -154,6 +154,7 @@ changes by simply running `terraform apply -var-file=<workspace_name>.tfvars`.
 | Name | Description |
 |------|-------------|
 | cw\_alarm\_sns\_topic | The SNS topic to which a message is sent when a CloudWatch alarm is triggered. |
+| lambda\_artifacts\_bucket | The S3 bucket in the Cyber Hygiene account where Lambda artifacts are stored. |
 | provisionaccount\_role | The IAM role that allows sufficient permissions to provision all AWS resources in the Cyber Hygiene account. |
 | ssm\_session\_role | An IAM role that allows creation of SSM SessionManager sessions to any EC2 instance in this account. |
 <!-- END_TF_DOCS -->

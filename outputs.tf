@@ -3,6 +3,11 @@ output "cw_alarm_sns_topic" {
   value       = module.cw_alarm_sns.sns_topic
 }
 
+output "lambda_artifacts_bucket" {
+  description = "The S3 bucket in the Cyber Hygiene account where Lambda artifacts are stored."
+  value       = aws_s3_bucket.lambda_artifacts
+}
+
 output "provisionaccount_role" {
   description = "The IAM role that allows sufficient permissions to provision all AWS resources in the Cyber Hygiene account."
   value       = module.provisionaccount.provisionaccount_role
