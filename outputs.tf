@@ -1,24 +1,19 @@
-output "arn" {
-  description = "The EC2 instance ARN."
-  value       = aws_instance.example.arn
+output "cw_alarm_sns_topic" {
+  description = "The SNS topic to which a message is sent when a CloudWatch alarm is triggered."
+  value       = module.cw_alarm_sns.sns_topic
 }
 
-output "availability_zone" {
-  description = "The AZ where the EC2 instance is deployed."
-  value       = aws_instance.example.availability_zone
+output "lambda_artifacts_bucket" {
+  description = "The S3 bucket in the Cyber Hygiene account where Lambda artifacts are stored."
+  value       = aws_s3_bucket.lambda_artifacts
 }
 
-output "id" {
-  description = "The EC2 instance ID."
-  value       = aws_instance.example.id
+output "provisionaccount_role" {
+  description = "The IAM role that allows sufficient permissions to provision all AWS resources in the Cyber Hygiene account."
+  value       = module.provisionaccount.provisionaccount_role
 }
 
-output "private_ip" {
-  description = "The private IP of the EC2 instance."
-  value       = aws_instance.example.private_ip
-}
-
-output "subnet_id" {
-  description = "The ID of the subnet where the EC2 instance is deployed."
-  value       = aws_instance.example.subnet_id
+output "ssm_session_role" {
+  description = "An IAM role that allows creation of SSM SessionManager sessions to any EC2 instance in this account."
+  value       = module.session_manager.ssm_session_role
 }
