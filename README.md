@@ -109,6 +109,7 @@ changes by simply running `terraform apply -var-file=<workspace_name>.tfvars`.
 | session\_manager | github.com/cisagov/session-manager-tf-module | n/a |
 | user\_group\_mod\_event | github.com/cisagov/user-group-mod-alert-tf-module | n/a |
 | user\_group\_mod\_sns | github.com/cisagov/sns-send-to-account-email-tf-module | n/a |
+| wiz | `https://wizio-public-fedramp.s3-us-gov-west-1.amazonaws.com/deployment-v3/aws/terraform/2209/wiz-aws-native-terraform-terraform-module.zip` | n/a |
 
 ## Resources ##
 
@@ -154,6 +155,8 @@ changes by simply running `terraform apply -var-file=<workspace_name>.tfvars`.
 | read\_cool\_lambda\_bucket\_policy\_description | The description to associate with the IAM role that allows read-only access to the bucket in the Terraform account containing Lambda deployments. | `string` | `"Allows read-only access to the bucket in the Terraform account containing Lambda deployments."` | no |
 | read\_cool\_lambda\_bucket\_policy\_name | The name to assign the IAM policy that allows read-only access to the bucket in the Terraform account containing Lambda deployments. | `string` | `"LambdaBucketReadOnly"` | no |
 | tags | Tags to apply to all AWS resources provisioned. | `map(string)` | `{}` | no |
+| wiz\_external\_id | The external ID of the Wiz AWS Connector.  This value must be retrieved from the Wiz portal when creating the AWS Connector. | `string` | n/a | yes |
+| wiz\_remote\_arn | The AWS Trust Policy Role ARN for your Wiz data center.  It can be retrieved from the Wiz portal (User Settings, Tenant). | `string` | n/a | yes |
 
 ## Outputs ##
 
@@ -163,6 +166,7 @@ changes by simply running `terraform apply -var-file=<workspace_name>.tfvars`.
 | lambda\_artifacts\_bucket | The S3 bucket in the Cyber Hygiene account where Lambda artifacts are stored. |
 | provisionaccount\_role | The IAM role that allows sufficient permissions to provision all AWS resources in the Cyber Hygiene account. |
 | ssm\_session\_role | An IAM role that allows creation of SSM SessionManager sessions to any EC2 instance in this account. |
+| wiz\_connector\_arn | The ARN of the IAM role created for the Wiz AWS connector. |
 <!-- END_TF_DOCS -->
 
 ## Notes ##
