@@ -1,6 +1,8 @@
 # cool-accounts-cyhy-tf-root #
 
 [![GitHub Build Status](https://github.com/cisagov/cool-accounts-cyhy-tf-root/workflows/build/badge.svg)](https://github.com/cisagov/cool-accounts-cyhy-tf-root/actions)
+[![License](https://img.shields.io/github/license/cisagov/cool-accounts-cyhy-tf-root)](https://spdx.org/licenses/)
+[![CodeQL](https://github.com/cisagov/cool-accounts-cyhy-tf-root/workflows/CodeQL/badge.svg)](https://github.com/cisagov/cool-accounts-cyhy-tf-root/actions/workflows/codeql-analysis.yml)
 
 This project contains Terraform code to perform the initial configuration of a
 COOL Cyber Hygiene (CyHy) account. This Terraform code creates and configures
