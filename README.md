@@ -88,33 +88,33 @@ changes by simply running `terraform apply -var-file=<workspace_name>.tfvars`.
 ## Requirements ##
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | terraform | ~> 1.1 |
-| aws | ~> 4.9 |
+| aws | ~> 6.18 |
 
 ## Providers ##
 
 | Name | Version |
-|------|---------|
-| aws | ~> 4.9 |
-| aws.organizationsreadonly | ~> 4.9 |
+| ---- | ------- |
+| aws | ~> 6.18 |
+| aws.organizationsreadonly | ~> 6.18 |
 
 ## Modules ##
 
 | Name | Source | Version |
-|------|--------|---------|
+| ---- | ------ | ------- |
 | cw\_alarm\_sns | github.com/cisagov/sns-send-to-account-email-tf-module | n/a |
 | disable-inactive-iam-users | github.com/cisagov/disable-inactive-iam-users-tf-module | n/a |
 | provisionaccount | github.com/cisagov/provisionaccount-role-tf-module | n/a |
 | session\_manager | github.com/cisagov/session-manager-tf-module | n/a |
 | user\_group\_mod\_event | github.com/cisagov/user-group-mod-alert-tf-module | n/a |
 | user\_group\_mod\_sns | github.com/cisagov/sns-send-to-account-email-tf-module | n/a |
-| wiz | `https://wizio-public-fedramp.s3-us-gov-west-1.amazonaws.com/deployment-v3/aws/terraform/2209/wiz-aws-native-terraform-terraform-module.zip` | n/a |
+| wiz | tf.app.wiz.io/wiz/native-terraform/aws | ~> 1.0 |
 
 ## Resources ##
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [aws_iam_policy.provisioncyhyroot_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_policy.provisionlambdabucket_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
 | [aws_iam_policy.provisionssmsessionmanager_policy](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_policy) | resource |
@@ -139,7 +139,7 @@ changes by simply running `terraform apply -var-file=<workspace_name>.tfvars`.
 ## Inputs ##
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | aws\_region | The AWS region where the non-global resources for the Cyber Hygiene account are to be provisioned (e.g. "us-east-1"). | `string` | `"us-east-1"` | no |
 | cool\_lambda\_artifacts\_s3\_bucket | The name of the bucket where COOL Lambda deployment packages are to be stored. | `string` | n/a | yes |
 | cyhy\_lambda\_artifacts\_s3\_bucket\_prefix | The prefix of the name of the bucket in the Cyber Hygiene account where any Lambda deployment artifacts for a CyHy environment will be stored.  A unique bucket name beginning with the specified prefix will be created. | `string` | `"cool-cyhy-lambda-deployment-artifacts"` | no |
@@ -161,7 +161,7 @@ changes by simply running `terraform apply -var-file=<workspace_name>.tfvars`.
 ## Outputs ##
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | cw\_alarm\_sns\_topic | The SNS topic to which a message is sent when a CloudWatch alarm is triggered. |
 | lambda\_artifacts\_bucket | The S3 bucket in the Cyber Hygiene account where Lambda artifacts are stored. |
 | provisionaccount\_role | The IAM role that allows sufficient permissions to provision all AWS resources in the Cyber Hygiene account. |
